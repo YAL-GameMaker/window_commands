@@ -1,0 +1,12 @@
+.vs/
+*/Configs/*/*
+*/extensions/*/*.cpp
+*/extensions/*/*.dll
+*/Release/
+Release/
+*.sdf
+help.rtf
+/window_command_hook.VC.db
+/export/*.png
+/export/*.gmez
+/export/*.gmz
