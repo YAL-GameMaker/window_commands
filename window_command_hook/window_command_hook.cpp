@@ -8,12 +8,17 @@
 WNDPROC window_command_proc_base = nullptr;
 HWND window_command_hwnd = nullptr;
 bool window_command_direct = false;
+bool window_background_redraw = false;
 std::map<WPARAM, bool> window_command_hooks;
 std::map<WPARAM, bool> window_command_blocks;
 LRESULT window_command_proc_hook(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 	//printf("msg=%d\n", msg); fflush(stdout);
-    if (!window_command_direct) switch (msg) {
+    switch (msg) {
+		case WM_ERASEBKGND:
+			if (!window_background_redraw) return TRUE;
+			break;
         case WM_SYSCOMMAND:
+			if (window_command_direct) break;
             auto cmd = wp & ~15;
             if (window_command_blocks.find(cmd) != window_command_blocks.end()) return TRUE;
             auto q = window_command_hooks.find(cmd);
@@ -128,5 +133,35 @@ dllx double window_command_check(double button) {
 
 dllx double window_set_topmost_raw(char* cwnd, double stayontop) {
 	SetWindowPos((HWND)cwnd, stayontop > 0.5 ? HWND_TOPMOST : HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+	return 1;
+}
+
+///
+dllx double window_get_background_redraw() {
+	return window_background_redraw;
+}
+
+dllx double window_set_background_redraw_raw(char* cwnd, double enable) {
+	window_command_bind_raw(cwnd);
+	window_background_redraw = enable > 0.5;
+	return 1;
+}
+
+// todo: use https://stackoverflow.com/questions/133122/how-to-change-a-window-owner-using-its-handle ?
+dllx double window_get_taskbar_button_visible_raw(char* cwnd) {
+	auto hwnd = (HWND)cwnd;
+	auto style = GetWindowLong(hwnd, GWL_EXSTYLE);
+	return (style & WS_EX_TOOLWINDOW) == 0;
+}
+
+dllx double window_set_taskbar_button_visible_raw(char* cwnd, double enable) {
+	auto hwnd = (HWND)cwnd;
+	auto style = GetWindowLong(hwnd, GWL_EXSTYLE);
+	if (enable > 0.5) {
+		style &= ~WS_EX_TOOLWINDOW;
+	} else {
+		style |= WS_EX_TOOLWINDOW;
+	}
+	SetWindowLong(hwnd, GWL_EXSTYLE, style);
 	return 1;
 }

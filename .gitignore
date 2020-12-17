@@ -2,6 +2,7 @@
 */Configs/*/*
 */extensions/*/*.cpp
 */extensions/*/*.dll
+*/#backups/
 */Release/
 Release/
 *.sdf

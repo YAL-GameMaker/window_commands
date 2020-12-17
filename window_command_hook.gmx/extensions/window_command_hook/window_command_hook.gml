@@ -1,10 +1,10 @@
 #define window_command_init
-//#window_command_close = $F060:
-//#window_command_maximize = $F030:
-//#window_command_minimize = $F020:
-//#window_command_restore = $F120:
-//#window_command_resize = $F000:
-//#window_command_move = $F010:
+//#macro window_command_close    $F060
+//#macro window_command_maximize $F030
+//#macro window_command_minimize $F020
+//#macro window_command_restore  $F120
+//#macro window_command_resize   $F000
+//#macro window_command_move     $F010
 
 #define window_command_hook
 /// (index): Hooks the specified command 
@@ -33,3 +33,15 @@ return window_command_set_active_raw(window_handle(), argument0, argument1);
 #define window_set_topmost
 /// (stayontop:bool): Allows to set a window to show on top of the rest like with GM8.
 return window_set_topmost_raw(window_handle(), argument0);
+
+#define window_set_background_redraw
+/// (redraw_enabled:bool)
+return window_set_background_redraw_raw(window_handle(), argument0);
+
+#define window_set_taskbar_button_visible
+/// (enable:bool)
+return window_set_taskbar_button_visible_raw(window_handle(), argument0);
+
+#define window_get_taskbar_button_visible
+/// ()->enabled?
+return window_get_taskbar_button_visible_raw(window_handle());
