@@ -30,6 +30,29 @@ window_command_hook(window_command_minimize);
 window_command_hook(window_command_maximize);
 window_command_hook(window_command_restore);
 window_command_hook(window_command_close);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>window_set_visible_w(true);
 
 </string>
           </argument>
@@ -78,6 +101,10 @@ if (keyboard_check_pressed(ord("T"))) {
     var v = window_get_taskbar_button_visible()
     window_set_taskbar_button_visible(!v);
 }
+if (keyboard_check_pressed(ord("V"))) {
+    window_set_visible_w(false);
+    alarm[0] = 60;
+}
 </string>
           </argument>
         </arguments>
@@ -102,7 +129,7 @@ if (keyboard_check_pressed(ord("T"))) {
             <kind>1</kind>
             <string>draw_set_font(fnt_test);
 draw_set_color(c_white);
-draw_text(4, 4, "Trigger: 1: Minimize, 2: Maximize, 3: Restore, 4: Close"
+draw_text(4, 4, "Trigger: 1: Minimize, 2: Maximize, 3: Restore, 4: Close, V: Visibility"
     + "#Toggle: Q: Minimize, W: Maximize, E: Move, R: Close, T: Taskbar");
 var _y = room_height - 4;
 for (var i = 0; i &lt; ds_list_size(global.log); i++) {

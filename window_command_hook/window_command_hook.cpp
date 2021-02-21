@@ -4,6 +4,9 @@
 #include <map>
 
 #define dllx extern "C" __declspec(dllexport)
+inline bool d2b(double val) {
+    return val > 0.5;
+}
 
 WNDPROC window_command_proc_base = nullptr;
 HWND window_command_hwnd = nullptr;
@@ -117,7 +120,7 @@ dllx double window_command_get_active_raw(char* cwnd, double cmd) {
     return window_command_acc_active(cwnd, cmd, -1);
 }
 dllx double window_command_set_active_raw(char* cwnd, double cmd, double val) {
-    return window_command_acc_active(cwnd, cmd, val > 0.5 ? 1 : 0);
+    return window_command_acc_active(cwnd, cmd, d2b(val) ? 1 : 0);
 }
 /// Returns whether the given button was pressed since the last call to this function.
 dllx double window_command_check(double button) {
@@ -132,8 +135,13 @@ dllx double window_command_check(double button) {
 }
 
 dllx double window_set_topmost_raw(char* cwnd, double stayontop) {
-	SetWindowPos((HWND)cwnd, stayontop > 0.5 ? HWND_TOPMOST : HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+	SetWindowPos((HWND)cwnd, d2b(stayontop) ? HWND_TOPMOST : HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 	return 1;
+}
+
+dllx double window_set_visible_raw(char* cwnd, double visible) {
+    ShowWindow((HWND)cwnd, d2b(visible) ? SW_SHOW : SW_HIDE);
+    return 1;
 }
 
 ///
@@ -143,7 +151,7 @@ dllx double window_get_background_redraw() {
 
 dllx double window_set_background_redraw_raw(char* cwnd, double enable) {
 	window_command_bind_raw(cwnd);
-	window_background_redraw = enable > 0.5;
+	window_background_redraw = d2b(enable);
 	return 1;
 }
 
@@ -157,7 +165,7 @@ dllx double window_get_taskbar_button_visible_raw(char* cwnd) {
 dllx double window_set_taskbar_button_visible_raw(char* cwnd, double enable) {
 	auto hwnd = (HWND)cwnd;
 	auto style = GetWindowLong(hwnd, GWL_EXSTYLE);
-	if (enable > 0.5) {
+	if (d2b(enable)) {
 		style &= ~WS_EX_TOOLWINDOW;
 	} else {
 		style |= WS_EX_TOOLWINDOW;

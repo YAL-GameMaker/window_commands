@@ -34,6 +34,10 @@ return window_command_set_active_raw(window_handle(), argument0, argument1);
 /// (stayontop:bool): Allows to set a window to show on top of the rest like with GM8.
 return window_set_topmost_raw(window_handle(), argument0);
 
+#define window_set_visible_w
+/// (visible:bool): Hides or shows the window like the respective function in GM8.
+return window_set_visible_raw(window_handle(), argument0);
+
 #define window_set_background_redraw
 /// (redraw_enabled:bool)
 return window_set_background_redraw_raw(window_handle(), argument0);

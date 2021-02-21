@@ -3,7 +3,7 @@
   <name>window_command_hook</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID>ACBD3CFF4E539AD869A0E8E3B4B022DD</ProductID>
+  <ProductID></ProductID>
   <date>18/02/17</date>
   <license>Proprietary</license>
   <description></description>
@@ -161,6 +161,18 @@
           </args>
         </function>
         <function>
+          <name>window_set_visible_raw</name>
+          <externalName>window_set_visible_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>window_get_background_redraw</name>
           <externalName>window_get_background_redraw</externalName>
           <kind>1</kind>
@@ -172,18 +184,6 @@
         <function>
           <name>window_set_background_redraw_raw</name>
           <externalName>window_set_background_redraw_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_set_taskbar_button_raw</name>
-          <externalName>window_set_taskbar_button_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -308,10 +308,10 @@
           </args>
         </function>
         <function>
-          <name>window_set_background_redraw</name>
-          <externalName>window_set_background_redraw</externalName>
+          <name>window_set_visible_w</name>
+          <externalName>window_set_visible_w</externalName>
           <kind>2</kind>
-          <help>window_set_background_redraw(redraw_enabled:bool)</help>
+          <help>window_set_visible_w(visible:bool): Hides or shows the window like the respective function in GM8.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -319,10 +319,10 @@
           </args>
         </function>
         <function>
-          <name>window_set_taskbar_button</name>
-          <externalName>window_set_taskbar_button</externalName>
+          <name>window_set_background_redraw</name>
+          <externalName>window_set_background_redraw</externalName>
           <kind>2</kind>
-          <help>window_set_taskbar_button(enable:bool)</help>
+          <help>window_set_background_redraw(redraw_enabled:bool)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
