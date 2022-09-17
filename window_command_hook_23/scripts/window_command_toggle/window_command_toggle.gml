@@ -4,7 +4,4 @@ function window_command_toggle(argument0, argument1) {
 	window_command_set_active(cmd, val);
 	var txt; if (val) txt = "en"; else txt = "dis";
 	trace(argument0 + " is now " + txt + "abled.");
-
-
-
 }

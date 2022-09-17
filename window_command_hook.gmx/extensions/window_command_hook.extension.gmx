@@ -29,66 +29,24 @@
     </Config>
   </ConfigOptions>
   <androidPermissions/>
-  <IncludedResources/>
+  <IncludedResources>
+    <Resource>Included Files\window_command_hook.html</Resource>
+  </IncludedResources>
   <files>
     <file>
       <filename>window_command_hook.dll</filename>
       <origname>extensions\window_command_hook.dll</origname>
       <init></init>
-      <final>window_command_cleanup</final>
+      <final></final>
       <kind>1</kind>
       <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
-          <CopyToMask>113497714299118</CopyToMask>
+          <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
       <functions>
-        <function>
-          <name>window_command_run_raw</name>
-          <externalName>window_command_run_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>3</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_command_cleanup</name>
-          <externalName>window_command_cleanup</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>window_command_init_raw</name>
-          <externalName>window_command_init_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_command_bind_raw</name>
-          <externalName>window_command_bind_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
         <function>
           <name>window_command_hook_raw</name>
           <externalName>window_command_hook_raw</externalName>
@@ -107,8 +65,33 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_check_raw</name>
+          <externalName>window_command_check_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_run_raw</name>
+          <externalName>window_command_run_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -130,21 +113,45 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>3</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
-            <arg>2</arg>
             <arg>2</arg>
           </args>
         </function>
         <function>
-          <name>window_command_check</name>
-          <externalName>window_command_check</externalName>
-          <kind>1</kind>
-          <help>window_command_check(button) : Returns whether the given button was pressed since the last call to this function.</help>
+          <name>window_get_background_redraw_raw</name>
+          <externalName>window_get_background_redraw_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_set_background_redraw_raw</name>
+          <externalName>window_set_background_redraw_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_topmost_raw</name>
+          <externalName>window_get_topmost_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
             <arg>2</arg>
           </args>
         </function>
@@ -161,52 +168,32 @@
           </args>
         </function>
         <function>
-          <name>window_set_visible_raw</name>
-          <externalName>window_set_visible_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_get_background_redraw</name>
-          <externalName>window_get_background_redraw</externalName>
-          <kind>1</kind>
-          <help>window_get_background_redraw()</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>window_set_background_redraw_raw</name>
-          <externalName>window_set_background_redraw_raw</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
           <name>window_get_taskbar_button_visible_raw</name>
           <externalName>window_get_taskbar_button_visible_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>1</argCount>
+          <argCount>2</argCount>
           <args>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
           <name>window_set_taskbar_button_visible_raw</name>
           <externalName>window_set_taskbar_button_visible_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_set_visible_w_raw</name>
+          <externalName>window_set_visible_w_raw</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -222,7 +209,7 @@
     <file>
       <filename>window_command_hook.gml</filename>
       <origname>extensions\gml.gml</origname>
-      <init></init>
+      <init>window_command_hook_init</init>
       <final></final>
       <kind>2</kind>
       <uncompress>0</uncompress>
@@ -234,8 +221,8 @@
       <ProxyFiles/>
       <functions>
         <function>
-          <name>window_command_init</name>
-          <externalName>window_command_init</externalName>
+          <name>window_command_hook_init</name>
+          <externalName>window_command_hook_init</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
@@ -243,111 +230,15 @@
           <args/>
         </function>
         <function>
-          <name>window_command_hook</name>
-          <externalName>window_command_hook</externalName>
-          <kind>2</kind>
-          <help>window_command_hook(index): Hooks the specified command </help>
+          <name>window_command_hook_prepare_buffer</name>
+          <externalName>window_command_hook_prepare_buffer</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
             <arg>2</arg>
           </args>
-        </function>
-        <function>
-          <name>window_command_unhook</name>
-          <externalName>window_command_unhook</externalName>
-          <kind>2</kind>
-          <help>window_command_unhook(index):</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_command_run</name>
-          <externalName>window_command_run</externalName>
-          <kind>2</kind>
-          <help>window_command_run(index, param = 0):</help>
-          <returnType>2</returnType>
-          <argCount>-1</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>window_command_get_active</name>
-          <externalName>window_command_get_active</externalName>
-          <kind>2</kind>
-          <help>window_command_get_active(command): Returns whether the given command is currently available.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_command_set_active</name>
-          <externalName>window_command_set_active</externalName>
-          <kind>2</kind>
-          <help>window_command_set_active(command, status:bool): Enables/disables the command. Returns -1 if not possible.</help>
-          <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_set_topmost</name>
-          <externalName>window_set_topmost</externalName>
-          <kind>2</kind>
-          <help>window_set_topmost(stayontop:bool): Allows to set a window to show on top of the rest like with GM8.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_set_visible_w</name>
-          <externalName>window_set_visible_w</externalName>
-          <kind>2</kind>
-          <help>window_set_visible_w(visible:bool): Hides or shows the window like the respective function in GM8.</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_set_background_redraw</name>
-          <externalName>window_set_background_redraw</externalName>
-          <kind>2</kind>
-          <help>window_set_background_redraw(redraw_enabled:bool)</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_set_taskbar_button_visible</name>
-          <externalName>window_set_taskbar_button_visible</externalName>
-          <kind>2</kind>
-          <help>window_set_taskbar_button_visible(enable:bool)</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>window_get_taskbar_button_visible</name>
-          <externalName>window_get_taskbar_button_visible</externalName>
-          <kind>2</kind>
-          <help>window_get_taskbar_button_visible()-&gt;enabled?</help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
         </function>
       </functions>
       <constants>
@@ -382,6 +273,162 @@
           <hidden>0</hidden>
         </constant>
       </constants>
+    </file>
+    <file>
+      <filename>autogen.gml</filename>
+      <origname>extensions\autogen.gml</origname>
+      <init></init>
+      <final></final>
+      <kind>2</kind>
+      <uncompress>0</uncompress>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <ProxyFiles/>
+      <functions>
+        <function>
+          <name>window_command_hook</name>
+          <externalName>window_command_hook</externalName>
+          <kind>2</kind>
+          <help>window_command_hook(command:int)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_unhook</name>
+          <externalName>window_command_unhook</externalName>
+          <kind>2</kind>
+          <help>window_command_unhook(command:int)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_check</name>
+          <externalName>window_command_check</externalName>
+          <kind>2</kind>
+          <help>window_command_check(command:int)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_run</name>
+          <externalName>window_command_run</externalName>
+          <kind>2</kind>
+          <help>window_command_run(wParam:int, lParam:int = 0)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_get_active</name>
+          <externalName>window_command_get_active</externalName>
+          <kind>2</kind>
+          <help>window_command_get_active(command:int)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_command_set_active</name>
+          <externalName>window_command_set_active</externalName>
+          <kind>2</kind>
+          <help>window_command_set_active(command:int, value:bool)-&gt;int</help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>2</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_background_redraw</name>
+          <externalName>window_get_background_redraw</externalName>
+          <kind>2</kind>
+          <help>window_get_background_redraw()-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>window_set_background_redraw</name>
+          <externalName>window_set_background_redraw</externalName>
+          <kind>2</kind>
+          <help>window_set_background_redraw(enable:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_topmost</name>
+          <externalName>window_get_topmost</externalName>
+          <kind>2</kind>
+          <help>window_get_topmost()-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>window_set_topmost</name>
+          <externalName>window_set_topmost</externalName>
+          <kind>2</kind>
+          <help>window_set_topmost(enable:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_taskbar_button_visible</name>
+          <externalName>window_get_taskbar_button_visible</externalName>
+          <kind>2</kind>
+          <help>window_get_taskbar_button_visible()-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>window_set_taskbar_button_visible</name>
+          <externalName>window_set_taskbar_button_visible</externalName>
+          <kind>2</kind>
+          <help>window_set_taskbar_button_visible(show_button:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_set_visible_w</name>
+          <externalName>window_set_visible_w</externalName>
+          <kind>2</kind>
+          <help>window_set_visible_w(visible:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+      </functions>
+      <constants/>
     </file>
   </files>
 </extension>

@@ -25,36 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.log = ds_list_create();
-window_command_hook(window_command_minimize);
-window_command_hook(window_command_maximize);
-window_command_hook(window_command_restore);
-window_command_hook(window_command_close);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>window_set_visible_w(true);
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -76,36 +47,7 @@ window_command_hook(window_command_close);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (window_command_check(window_command_minimize)) trace("Minimize clicked.");
-if (window_command_check(window_command_maximize)) trace("Maximize clicked.");
-if (window_command_check(window_command_restore)) {
-    trace("Restore clicked.");
-    if (window_get_height() == 0) {
-        // Restoring from minimized state
-        window_command_run(window_command_restore);
-    }
-}
-if (window_command_check(window_command_close)) trace("Close clicked.");
-//
-if (keyboard_check_pressed(ord("1"))) window_command_run(window_command_minimize);
-if (keyboard_check_pressed(ord("2"))) window_command_run(window_command_maximize);
-if (keyboard_check_pressed(ord("3"))) window_command_run(window_command_restore);
-if (keyboard_check_pressed(ord("4"))) window_command_run(window_command_close);
-//
-if (keyboard_check_pressed(ord("Q"))) window_command_toggle("Maximize", window_command_minimize);
-if (keyboard_check_pressed(ord("W"))) window_command_toggle("Minimize", window_command_maximize);
-if (keyboard_check_pressed(ord("E"))) window_command_toggle("Move", window_command_move);
-if (keyboard_check_pressed(ord("R"))) window_command_toggle("Close", window_command_close);
-//
-if (keyboard_check_pressed(ord("T"))) {
-    var v = window_get_taskbar_button_visible()
-    window_set_taskbar_button_visible(!v);
-}
-if (keyboard_check_pressed(ord("V"))) {
-    window_set_visible_w(false);
-    alarm[0] = 60;
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -129,14 +71,6 @@ if (keyboard_check_pressed(ord("V"))) {
             <kind>1</kind>
             <string>draw_set_font(fnt_test);
 draw_set_color(c_white);
-draw_text(4, 4, "Trigger: 1: Minimize, 2: Maximize, 3: Restore, 4: Close, V: Visibility"
-    + "#Toggle: Q: Minimize, W: Maximize, E: Move, R: Close, T: Taskbar");
-var _y = room_height - 4;
-for (var i = 0; i &lt; ds_list_size(global.log); i++) {
-    var s = global.log[|i];
-    _y -= string_height(s);
-    draw_text(4, _y, s);
-}
 </string>
           </argument>
         </arguments>

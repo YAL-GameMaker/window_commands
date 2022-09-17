@@ -1,0 +1,7 @@
+```set template default.html```
+```set title window_command_hook cheat sheet```
+```set autoapi ext```
+```set intro
+This is a "cheat sheet" for "window_command_hook" extension by YellowAfterlife.
+The extension can be found on [itch.io](https://yellowafterlife.itch.io/gamemaker-window_command_hook).
+```

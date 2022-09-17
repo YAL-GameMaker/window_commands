@@ -7,10 +7,7 @@ function trace() {
 	}
 	show_debug_message(r);
 	ds_list_insert(global.log, 0, r);
-	if (ds_list_size(global.log) > 8) {
-	    ds_list_delete(global.log, 8);
+	if (ds_list_size(global.log) > 5) {
+	    ds_list_delete(global.log, 5);
 	}
-
-
-
 }

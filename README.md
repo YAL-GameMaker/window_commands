@@ -1,4 +1,4 @@
-# window_commands
+# Window Commands
 
 **Quick links:** [itch.io page](https://yellowafterlife.itch.io/gamemaker-window-commands)
 

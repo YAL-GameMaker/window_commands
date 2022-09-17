@@ -3,6 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="2" name="datafiles">
+    <datafile>
+      <name>window_command_hook.html</name>
+      <exists>-1</exists>
+      <size>159</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>0</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>window_command_hook.html</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\window_command_hook</extension>
   </NewExtensions>
@@ -12,7 +31,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\trace.gml</script>
-    <script>scripts\window_command_toggle.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_test</font>

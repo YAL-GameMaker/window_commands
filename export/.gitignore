@@ -1,0 +1,8 @@
+window_command_hook-for-GMS1/*
+
+window_command_hook-for-GMS2/*
+!window_command_hook-for-GMS2/assetpackage.yy
+
+window_command_hook-for-GMS2.3+/*
+!window_command_hook-for-GMS2.3+/window_command_hook_23.yyp
+!window_command_hook-for-GMS2.3+/metadata.json
