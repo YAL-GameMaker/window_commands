@@ -1,7 +1,140 @@
 ```set template default.html```
 ```set title window_command_hook cheat sheet```
 ```set autoapi ext```
-```set intro
-This is a "cheat sheet" for "window_command_hook" extension by YellowAfterlife.
-The extension can be found on [itch.io](https://yellowafterlife.itch.io/gamemaker-window_command_hook).
+```gmlapi fnames2```
+```gmlapi
+window_command_close = $F060
+window_command_maximize = $F030
+window_command_minimize = $F020
+window_command_restore = $F120
+window_command_resize = $F000
+window_command_move = $F010
 ```
+```set tag:defcode gml```
+```set intro
+This is a "cheat sheet" for "window_command_hook" extension by YellowAfterlife.\
+The extension can be found on [itch.io](https://yellowafterlife.itch.io/gamemaker-window_commands).
+```
+```setmd simpleret
+Returns whether successful (can only fail if the DLL isn't loaded).
+```
+#[Constants](const) {
+	The following correspond to window buttons.\
+	They can be enabled/disabled, hooked, and executed:
+	--{
+	- `window_command_close`
+	- `window_command_maximize`
+	- `window_command_minimize`
+	- `window_command_restore`
+	}
+	The following correspond to window operations.\
+	They can only be enabled/disabled:
+	--{
+	- `window_command_resize`
+	- `window_command_move`
+	}
+}
+---
+#[window_command_set_active(command:int, value:bool)->int]() {
+	Enables/disables the specified command.
+	
+	%[simpleret]
+	
+	For window buttons, this grays them out.\
+	Operations are just prevented from starting.
+	
+	For example, the following disables the Close button:
+	```
+	window_command_set_active(window_command_close, false);
+	```
+}
+#[window_command_get_active(command:int)->int]() {
+	Returns whether the specified command is currently enabled.
+}
+#[window_command_run(command:int, lParam:int = 0)->int]() {
+	Force-executes a command.\
+	This can be done even when a command is
+	[disabled](window_command_set_active)
+	or [hooked](window_command_hook).
+	
+	For example, the following minimizes the window:
+	```
+	window_command_run(window_command_minimize);
+	```
+	On the technical side, this performs a `SendMessage(hwnd, WM_SYSCOMMAND, command, lParam)`
+	so you can also use it for [other messages](https://learn.microsoft.com/en-us/windows/win32/menurc/wm-syscommand)
+	if you need to - for example, the following would enable the scrensaver:
+	```
+	window_command_run(0xF140);
+	```
+	Returns `LRESULT` from `SendMessageW` (generally not very useful).
+}
+---
+#[window_command_hook(command:int)->bool]() {
+	Hooks the specified command-button.
+	
+	%[simpleret]
+	
+	Hooked buttons remain enabled and can be pressed by the user,
+	but the action will be intercepted.
+	
+	For example,\
+	*Create*:
+	```
+	window_command_hook(window_command_close);
+	```
+	*Step*:
+	```
+	if (window_command_check(window_command_close)) {
+		if (show_question("Really quit?")) game_end();
+	}
+	```
+}
+#[window_command_unhook(command:int)->bool]() {
+	Unhooks the specified command-button, returning it to normal operation.
+	
+	%[simpleret]
+}
+#[window_command_check(command:int)->bool]() {
+	Returns whether a command has been triggered by the user since this function was last called
+	for it.
+	
+	If you have multiple spots in game code check for a command,
+	store it in a global variable in one place and check for it in the rest.
+}
+---
+#[window_set_background_redraw(enable:bool)->bool]() {
+	Changes whether the WinAPI will clear the window with background color,
+	which is separate from game background being cleared during normal drawing.
+	
+	%[simpleret]
+	
+	I don't remember who I added this function for / what the use case was.
+}
+#[window_get_background_redraw()->bool]() {
+	Returns the current state for above.
+}
+---
+#[window_set_topmost(enable:bool)->bool]() {
+	Changes whether the window will stick on top of other windows,
+	akin to a long-forgotten GM8 function.
+}
+#[window_get_topmost()->bool]() {
+	Returns whether a window is currently stay-on-top.
+}
+---
+#[window_set_taskbar_button_visible(show_button:bool)->bool]() {
+	Changes whether the game window will have a button shown for it in the taskbar.
+	
+	%[simpleret]
+}
+#[window_get_taskbar_button_visible()->bool]() {
+	Returns whether the game window currently has a taskbar button shown for it.
+}
+---
+#[window_set_visible_w(visible:bool)->bool]() {
+	Changes visibility of the game window, much like the GM8 function.
+	
+	Don't forget to make your window visible later or call `game_end()`,
+	else the user will have to look for it in the Task Manager.
+}
