@@ -71,9 +71,9 @@ int window_command_acc_active(HWND hwnd, WPARAM wcmd, int _val) {
     auto set = _val > 0;
     switch (wcmd) {
         case SC_MOVE: case SC_SIZE: case SC_MOUSEMENU: {
-            if (get) return window_commands_blocked.contains(wcmd);
+            if (get) return !window_commands_blocked.contains(wcmd);
             if (set) window_command_proc_ensure(hwnd);
-            window_commands_blocked.set(wcmd, set);
+            window_commands_blocked.set(wcmd, !set);
             return 1;
         }; break;
         case SC_CLOSE: {
