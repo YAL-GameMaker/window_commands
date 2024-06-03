@@ -82,6 +82,32 @@ buffer_write(_buf, buffer_u64, int64(window_handle()));
 buffer_write(_buf, buffer_bool, argument0);
 return window_set_taskbar_button_visible_raw(buffer_get_address(_buf), 9);
 
+#define window_get_clickthrough
+/// window_get_clickthrough()->bool
+var _buf = window_command_hook_prepare_buffer(8);
+buffer_write(_buf, buffer_u64, int64(window_handle()));
+return window_get_clickthrough_raw(buffer_get_address(_buf), 8);
+
+#define window_set_clickthrough
+/// window_set_clickthrough(enable_clickthrough:bool)->bool
+var _buf = window_command_hook_prepare_buffer(9);
+buffer_write(_buf, buffer_u64, int64(window_handle()));
+buffer_write(_buf, buffer_bool, argument0);
+return window_set_clickthrough_raw(buffer_get_address(_buf), 9);
+
+#define window_get_noactivate
+/// window_get_noactivate()->bool
+var _buf = window_command_hook_prepare_buffer(8);
+buffer_write(_buf, buffer_u64, int64(window_handle()));
+return window_get_noactivate_raw(buffer_get_address(_buf), 8);
+
+#define window_set_noactivate
+/// window_set_noactivate(disable_activation:bool)->bool
+var _buf = window_command_hook_prepare_buffer(9);
+buffer_write(_buf, buffer_u64, int64(window_handle()));
+buffer_write(_buf, buffer_bool, argument0);
+return window_set_noactivate_raw(buffer_get_address(_buf), 9);
+
 #define window_set_visible_w
 /// window_set_visible_w(visible:bool)->bool
 var _buf = window_command_hook_prepare_buffer(9);

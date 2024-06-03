@@ -192,6 +192,54 @@
           </args>
         </function>
         <function>
+          <name>window_get_clickthrough_raw</name>
+          <externalName>window_get_clickthrough_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_set_clickthrough_raw</name>
+          <externalName>window_set_clickthrough_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_noactivate_raw</name>
+          <externalName>window_get_noactivate_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_set_noactivate_raw</name>
+          <externalName>window_set_noactivate_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
           <name>window_set_visible_w_raw</name>
           <externalName>window_set_visible_w_raw</externalName>
           <kind>11</kind>
@@ -327,11 +375,8 @@
           <kind>2</kind>
           <help>window_command_run(wParam:int, lParam:int = 0)-&gt;int</help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>2</arg>
-            <arg>2</arg>
-          </args>
+          <argCount>-1</argCount>
+          <args/>
         </function>
         <function>
           <name>window_command_get_active</name>
@@ -410,6 +455,46 @@
           <externalName>window_set_taskbar_button_visible</externalName>
           <kind>2</kind>
           <help>window_set_taskbar_button_visible(show_button:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_clickthrough</name>
+          <externalName>window_get_clickthrough</externalName>
+          <kind>2</kind>
+          <help>window_get_clickthrough()-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>window_set_clickthrough</name>
+          <externalName>window_set_clickthrough</externalName>
+          <kind>2</kind>
+          <help>window_set_clickthrough(enable_clickthrough:bool)-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>window_get_noactivate</name>
+          <externalName>window_get_noactivate</externalName>
+          <kind>2</kind>
+          <help>window_get_noactivate()-&gt;bool</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>window_set_noactivate</name>
+          <externalName>window_set_noactivate</externalName>
+          <kind>2</kind>
+          <help>window_set_noactivate(disable_activation:bool)-&gt;bool</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>

@@ -166,7 +166,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "54602e50-747a-a5b3-af37-3e03a690dc82",
+                    "id": "0f1f0244-6e60-b50d-8ea4-16a2939faa72",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
@@ -198,7 +198,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "eeef478d-bf07-a69e-2962-80e0b34975c1",
+                    "id": "2d3d2066-0806-d32f-4268-9e2a179f4490",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 2,
@@ -227,6 +227,70 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "window_set_taskbar_button_visible_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "2d3d2066-4c42-972f-f9d3-61d5e9355580",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "window_get_clickthrough_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "window_get_clickthrough_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "d6adce42-8f12-ade8-dcab-ced2e556f586",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "window_set_clickthrough_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "window_set_clickthrough_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "ff3457db-4f12-ade4-1dba-8657bbe182f1",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "window_get_noactivate_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "window_get_noactivate_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "5a385968-3de6-6b5c-c12a-7b1c4b7901fe",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 2,
+                    "args": [
+                        1,
+                        2
+                    ],
+                    "externalName": "window_set_noactivate_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "window_set_noactivate_raw",
                     "returnType": 2
                 },
                 {
@@ -417,10 +481,9 @@
                     "id": "fa6102e8-db56-8fcb-e189-1210affd4ec2",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": -1,
                     "args": [
-                        2,
-                        2
+                        
                     ],
                     "externalName": "window_command_run",
                     "help": "window_command_run(wParam:int, lParam:int = 0)->int",
@@ -491,7 +554,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "6f372606-df58-f9f0-c525-910028b8563f",
+                    "id": "c2e19e4f-cb6c-f78f-58cf-f12e884ab12c",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -521,7 +584,7 @@
                     "returnType": 2
                 },
                 {
-                    "id": "9254c76b-29f9-2cd5-8607-8978f683afd7",
+                    "id": "995231f9-8c21-da9c-9989-54791177e4e0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
@@ -548,6 +611,66 @@
                     "hidden": false,
                     "kind": 2,
                     "name": "window_set_taskbar_button_visible",
+                    "returnType": 2
+                },
+                {
+                    "id": "f6e91caa-d101-d96d-812e-0c4f8cf5e2f0",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "window_get_clickthrough",
+                    "help": "window_get_clickthrough()->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "window_get_clickthrough",
+                    "returnType": 2
+                },
+                {
+                    "id": "c66f8d91-2487-f6d8-7acb-1b7df821e171",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "window_set_clickthrough",
+                    "help": "window_set_clickthrough(enable_clickthrough:bool)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "window_set_clickthrough",
+                    "returnType": 2
+                },
+                {
+                    "id": "809e8874-f601-6b50-0d20-3391e6a467e2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "window_get_noactivate",
+                    "help": "window_get_noactivate()->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "window_get_noactivate",
+                    "returnType": 2
+                },
+                {
+                    "id": "ecc9ba9a-a664-4d1e-a619-4b05a1abe5ec",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "window_set_noactivate",
+                    "help": "window_set_noactivate(disable_activation:bool)->bool",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "window_set_noactivate",
                     "returnType": 2
                 },
                 {

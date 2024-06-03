@@ -65,13 +65,27 @@
             1,
             2,
           ],"resourceVersion":"1.0","name":"window_set_taskbar_button_visible_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_get_clickthrough_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            2,
+          ],"resourceVersion":"1.0","name":"window_get_clickthrough_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_set_clickthrough_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            2,
+          ],"resourceVersion":"1.0","name":"window_set_clickthrough_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_get_noactivate_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            2,
+          ],"resourceVersion":"1.0","name":"window_get_noactivate_raw","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_set_noactivate_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
+            1,
+            2,
+          ],"resourceVersion":"1.0","name":"window_set_noactivate_raw","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"window_set_visible_w_raw","kind":11,"help":"","hidden":true,"returnType":2,"argCount":2,"args":[
             1,
             2,
           ],"resourceVersion":"1.0","name":"window_set_visible_w_raw","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[
-        
-      ],"ProxyFiles":[
+      ],"constants":[],"ProxyFiles":[
         {"name":"window_command_hook_x64.dll","tags":[],"resourceVersion":"1.0","resourceType":"GMProxyFile","TargetMask":6,},
       ],"copyToTargets":9223372036854775807,"order":[
         {"name":"window_command_hook_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
@@ -86,6 +100,10 @@
         {"name":"window_set_topmost_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_get_taskbar_button_visible_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_set_taskbar_button_visible_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_get_clickthrough_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_set_clickthrough_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_get_noactivate_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_set_noactivate_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_set_visible_w_raw","path":"extensions/window_command_hook/window_command_hook.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"window_command_hook.gml","origname":"extensions\\gml.gml","init":"window_command_hook_init","final":"","kind":2,"uncompress":false,"functions":[
@@ -114,10 +132,7 @@
         {"externalName":"window_command_check","kind":2,"help":"window_command_check(command:int)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"window_command_check","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"window_command_run","kind":2,"help":"window_command_run(wParam:int, lParam:int = 0)->int","hidden":false,"returnType":2,"argCount":2,"args":[
-            2,
-            2,
-          ],"resourceVersion":"1.0","name":"window_command_run","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_command_run","kind":2,"help":"window_command_run(wParam:int, lParam:int = 0)->int","hidden":false,"returnType":2,"argCount":-1,"args":[],"resourceVersion":"1.0","name":"window_command_run","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"window_command_get_active","kind":2,"help":"window_command_get_active(command:int)->int","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"window_command_get_active","tags":[],"resourceType":"GMExtensionFunction",},
@@ -137,12 +152,18 @@
         {"externalName":"window_set_taskbar_button_visible","kind":2,"help":"window_set_taskbar_button_visible(show_button:bool)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"window_set_taskbar_button_visible","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_get_clickthrough","kind":2,"help":"window_get_clickthrough()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"window_get_clickthrough","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_set_clickthrough","kind":2,"help":"window_set_clickthrough(enable_clickthrough:bool)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"window_set_clickthrough","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_get_noactivate","kind":2,"help":"window_get_noactivate()->bool","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"window_get_noactivate","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"window_set_noactivate","kind":2,"help":"window_set_noactivate(disable_activation:bool)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"window_set_noactivate","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"window_set_visible_w","kind":2,"help":"window_set_visible_w(visible:bool)->bool","hidden":false,"returnType":2,"argCount":1,"args":[
             2,
           ],"resourceVersion":"1.0","name":"window_set_visible_w","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[
-        
-      ],"ProxyFiles":[],"copyToTargets":-1,"order":[
+      ],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"order":[
         {"name":"window_command_hook","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_command_unhook","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_command_check","path":"extensions/window_command_hook/window_command_hook.yy",},
@@ -155,6 +176,10 @@
         {"name":"window_set_topmost","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_get_taskbar_button_visible","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_set_taskbar_button_visible","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_get_clickthrough","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_set_clickthrough","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_get_noactivate","path":"extensions/window_command_hook/window_command_hook.yy",},
+        {"name":"window_set_noactivate","path":"extensions/window_command_hook/window_command_hook.yy",},
         {"name":"window_set_visible_w","path":"extensions/window_command_hook/window_command_hook.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
