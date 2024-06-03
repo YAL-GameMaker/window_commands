@@ -29,4 +29,10 @@ cmd /C 7z a window_command_hook-for-GMS2.3+.zip *
 move /Y window_command_hook-for-GMS2.3+.zip ../window_command_hook-for-GMS2.3+.yymps
 cd ..
 
+del /Q window_command_hook_demo.yyz
+cd ..\window_command_hook_23
+cmd /C 7z a ..\export\window_command_hook_demo.yyz *
+cd ..\export
+
+
 pause

@@ -1,9 +1,9 @@
-<html lang="en"><head>
+<!DOCTYPE HTML><html lang="en"><head>
 <meta charset="UTF-8">
 <title>window_command_hook cheat sheet</title>
 <meta name="viewport" content="width=device-width" />
 <meta name="livenode" content="#doc" />
-<meta property="theme-color" content="<section><header>FFF037</header><article></article></section>" />
+<meta property="theme-color" content="#FFF037" />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="en_us" />
 <meta property="og:site_name" content="YellowAfterlife" />
@@ -43,7 +43,9 @@ body {
 	padding-left: 0;
 	margin: 0;
 }
-#doc article > ul, #doc article > ol {
+#doc blockquote { margin: 0.5em 0; padding: 0; }
+#doc article > ul, #doc li > ul,
+#doc article > ol, #doc li > ol {
 	padding-left: 20px;
 }
 #doc article ul li {
@@ -61,11 +63,14 @@ body {
 	padding-top: 1px;
 	padding-bottom: 1px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
 }
 #doc header a {
 	outline: none;
 	text-decoration: none;
 	color: #458;
+	word-break: break-word;
 }
 #doc header::before {
 	display: inline-block;
@@ -79,8 +84,7 @@ body {
 	border-radius: 50%;
 	margin-right: 4px;
 	vertical-align: middle;
-	position: relative;
-	top: -1px;
+	flex-shrink: 0;
 }
 #doc section.open > header::before {
 	content: "-";
@@ -88,9 +92,11 @@ body {
 #doc section.empty > header::before {
 	content: " "; /*"·"*/
 }
-#doc header:hover {
-	border-left-color: #f3f3f3;
-	background: #f3f3f3;
+
+#doc header:hover,
+#doc .sticky-side:hover {
+	border-left-color: #E7E7E7; /* rgba(0, 0, 0, 0.05) */
+	background: rgba(0, 0, 0, 0.048);
 }
 #doc header .ret-arrow {
 	font-weight: normal;
@@ -116,13 +122,43 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 
-#doc article, #doc ul {
+#doc article,
+#doc ul,
+#doc ol,
+#doc blockquote {
 	padding-left: 20px;
 	border-left: 2px solid #f3f3f3;
 }
 #doc article {
 	padding-top: 0.25em;
 	padding-bottom: 0.5em;
+	position: relative;
+}
+#doc .sticky-side {
+	position: absolute;
+	left: -2px;
+	top: 0;
+	bottom: 1px;
+	width: 20px;
+	writing-mode: vertical-rl;
+	font-size: 85%;
+	text-orientation: sideways;
+	/*transform: rotate(0.05deg);*/
+}
+#doc .sticky-side,
+#doc .sticky-side:visited {
+	color: rgba(0, 0, 0, 0.3);
+}
+#doc .sticky-side > span {
+	display: inline-block;
+	position: sticky;
+	left: 0;
+	top: 0;
+	padding: 0.3em 0;
+	max-height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	white-space: nowrap;
 }
 #doc tt {
 	font-weight: bold;
@@ -264,12 +300,10 @@ pre.gmlmd a.sf, #doc pre a.sv {
 #night:checked + .main pre.gmlmd a.sv {
 	background-color: #422;
 }</style>
-<style type="text/css" id="night_css">#night { display: none }
-label[for="night"] {
-	color: blue;
-	text-decoration: underline;
+<style type="text/css" id="night_css">.main label[for="night"] {
 	cursor: pointer;
 }
+#night { display: none }
 #night:checked + .main {
 	background-color: #424242;
 }
@@ -290,6 +324,7 @@ label[for="night"] {
 }
 #night:checked + .main #doc header,
 #night:checked + .main #doc header:hover,
+#night:checked + .main #doc .sticky-side:hover,
 #night:checked + .main #doc article,
 #night:checked + .main #doc section,
 #night:checked + .main #doc section + p,
@@ -302,6 +337,7 @@ label[for="night"] {
 	border-color: rgba(205,225,255,0.1);
 }
 #night:checked + .main #doc header:hover,
+#night:checked + .main #doc .sticky-side:hover,
 #night:checked + .main #doc .asset:hover {
 	background: rgba(205,225,255,0.1);
 }
@@ -317,6 +353,10 @@ label[for="night"] {
 	background-color: #000;
 	border-color: #5b7c9f;
 	color: white;
+}
+#night:checked + .main #doc .sticky-side,
+#night:checked + .main #doc .sticky-side:visited {
+	color: rgba(255, 255, 255, 0.3);
 }</style>
 <style type="text/css" id="print_css">@media print {
 	.main { background-color: transparent }
@@ -350,21 +390,26 @@ label[for="night"] {
 	var night = document.getElementById("night");
 	var path = "docmd night mode";
 	var ls = window.localStorage;
+	var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 	if (ls) {
-		night.checked = ls.getItem(path) == "true";
+		var item = ls.getItem(path);
+		night.checked = item ? item == "true" : dark;
 		night.onchange = function(_) {
 			ls.setItem(path, "" + night.checked);
 		};
-	}
+	} else night.checked = dark;
 })();</script>
 <main class="page">
-<section class="intro">This is a "cheat sheet" for "window_command_hook" extension by YellowAfterlife.<br/>
-The extension can be found on <a href="https://yellowafterlife.itch.io/gamemaker-window_commands">itch.io</a>.</section><section class="display-controls">
+<section class="intro">
+This is a "cheat sheet" for "window_command_hook" extension by YellowAfterlife.<br/>
+The extension can be found on <a href="https://yellowafterlife.itch.io/gamemaker-window_commands">itch.io</a>.
+</section>
+<section class="display-controls">
 Click on sections to expand/collapse them.<br>Quick display controls:
-<a href="#" onclick="opt_none(); return false">Categories</a>
-&middot; <a href="#" onclick="opt_list(); return false">Sections</a>
-&middot; <a href="#" onclick="opt_all(); return false">Everything</a>
-&middot; <label for="night">Toggle night mode</label><br/>
+<a href="javascript:void(0)" onclick="opt_none(); return false">Categories</a>
+&middot; <a href="javascript:void(0)" onclick="opt_list(); return false">Sections</a>
+&middot; <a href="javascript:void(0)" onclick="opt_all(); return false">Everything</a>
+&middot; <a href="javascript:void(0)"><label for="night">Toggle night mode</label></a><br/>
 </section><section id="doc">
 <!--<doc--><p><p>
 
@@ -436,11 +481,11 @@ Click on sections to expand/collapse them.<br>Quick display controls:
 	but the action will be intercepted.
 	</p><p>
 	For example,<br/>
-	<b>Create</b>:
+	<strong>Create</strong>:
 	</p><pre class="gmlmd">
 <a class="sf" href="#window_command_hook">window_command_hook</a><span class="op">(</span><span class="sv">window_command_close</span><span class="op">)</span><span class="op">;</span>
 </pre><p>
-	<b>Step</b>:
+	<strong>Step</strong>:
 	</p><pre class="gmlmd">
 <span class="kw">if</span> <span class="op">(</span><a class="sf" href="#window_command_check">window_command_check</a><span class="op">(</span><span class="sv">window_command_close</span><span class="op">)</span><span class="op">)</span> <span class="cb">{</span>
     <span class="kw">if</span> <span class="op">(</span><span class="sf">show_question</span><span class="op">(</span><span class="st">"Really quit?"</span><span class="op">)</span><span class="op">)</span> <span class="sf">game_end</span><span class="op">(</span><span class="op">)</span><span class="op">;</span>
@@ -472,9 +517,23 @@ Click on sections to expand/collapse them.<br>Quick display controls:
 </p></article></section><hr/><section><header id="window_set_taskbar_button_visible"><a href="#window_set_taskbar_button_visible" title="(permalink)">window_set_taskbar_button_visible(show_button:bool)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 	Changes whether the game window will have a button shown for it in the taskbar.
 	</p><p>
+	The current approach is best suitable for borderless windows.
+	</p><p>
 	Returns whether successful (can only fail if the DLL isn't loaded).
 </p></article></section><section><header id="window_get_taskbar_button_visible"><a href="#window_get_taskbar_button_visible" title="(permalink)">window_get_taskbar_button_visible()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 	Returns whether the game window currently has a taskbar button shown for it.
+</p></article></section><hr/><section><header id="window_set_clickthrough"><a href="#window_set_clickthrough" title="(permalink)">window_set_clickthrough(enable:bool)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	Changes whether the mouse clicks pass right through the game window.
+	</p><p>
+	Returns whether successful (can only fail if the DLL isn't loaded).
+</p></article></section><section><header id="window_set_clickthrough"><a href="#window_set_clickthrough" title="(permalink)">window_set_clickthrough()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	Returns whether the mouse clicks pass right through the game window.
+</p></article></section><hr/><section><header id="window_set_noactivate"><a href="#window_set_noactivate" title="(permalink)">window_set_noactivate(disable_activation)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	Changes whether the window is prevented from gaining focus.
+	</p><p>
+	Returns whether successful (can only fail if the DLL isn't loaded).
+</p></article></section><section><header id="window_get_noactivate"><a href="#window_get_noactivate" title="(permalink)">window_get_noactivate()&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
+	Returns whether the window is prevented from gaining focus.
 </p></article></section><hr/><section><header id="window_set_visible_w"><a href="#window_set_visible_w" title="(permalink)">window_set_visible_w(visible:bool)&#8203;<span class="ret-arrow">&#10140;</span>bool</a></header><article><p>
 	Changes visibility of the game window, much like the GM8 function.
 	</p><p>

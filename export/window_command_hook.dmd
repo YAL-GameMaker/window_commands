@@ -126,10 +126,30 @@ Returns whether successful (can only fail if the DLL isn't loaded).
 #[window_set_taskbar_button_visible(show_button:bool)->bool]() {
 	Changes whether the game window will have a button shown for it in the taskbar.
 	
+	The current approach is best suitable for borderless windows.
+	
 	%[simpleret]
 }
 #[window_get_taskbar_button_visible()->bool]() {
 	Returns whether the game window currently has a taskbar button shown for it.
+}
+---
+#[window_set_clickthrough(enable:bool)->bool]() {
+	Changes whether the mouse clicks pass right through the game window.
+	
+	%[simpleret]
+}
+#[window_set_clickthrough()->bool]() {
+	Returns whether the mouse clicks pass right through the game window.
+}
+---
+#[window_set_noactivate(disable_activation)->bool]() {
+	Changes whether the window is prevented from gaining focus.
+	
+	%[simpleret]
+}
+#[window_get_noactivate()->bool]() {
+	Returns whether the window is prevented from gaining focus.
 }
 ---
 #[window_set_visible_w(visible:bool)->bool]() {
