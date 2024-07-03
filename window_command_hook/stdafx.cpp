@@ -33,6 +33,23 @@ void trace(const char* pszFormat, ...) {
 #endif
 #endif
 
+#ifdef _show_error
+#ifdef _WINDOWS
+// https://yal.cc/printf-without-standard-library/
+void show_error(const char* pszFormat, ...) {
+	char buf[1024];
+	va_list argList;
+	va_start(argList, pszFormat);
+	wvsprintfA(buf, pszFormat, argList);
+	va_end(argList);
+	auto len = strlen(buf);
+	buf[len] = '\n';
+	buf[++len] = 0;
+	MessageBoxA(0, buf, gm_extension_name, MB_OK | MB_ICONERROR);
+}
+#endif
+#endif
+
 #pragma warning(disable: 28251 28252)
 
 #ifdef tiny_memset
@@ -72,6 +89,7 @@ void* __cdecl malloc(size_t _Size) {
 	return HeapAlloc(GetProcessHeap(), 0, _Size);
 }
 void* __cdecl realloc(void* _Block, size_t _Size) {
+	if (_Block == nullptr) return HeapAlloc(GetProcessHeap(), 0, _Size);
 	return HeapReAlloc(GetProcessHeap(), 0, _Block, _Size);
 }
 void __cdecl free(void* _Block) {

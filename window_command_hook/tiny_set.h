@@ -4,9 +4,9 @@
 
 template<typename T> struct tiny_set {
 private:
-	T* _arr;
-	size_t _length;
-	size_t _capacity;
+	T* _arr = nullptr;
+	size_t _length = 0;
+	size_t _capacity = 0;
 public:
 	tiny_set() {}
 	tiny_set(size_t capacity) { init(capacity); }

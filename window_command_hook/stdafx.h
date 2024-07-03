@@ -12,6 +12,8 @@
 	#include <windows.h>
 #endif
 
+#define gm_extension_name "window_shape"
+
 #if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
 #define tiny_cpp17
 #endif
@@ -25,6 +27,7 @@
 #endif
 
 #define _trace // requires user32.lib;Kernel32.lib
+#define _show_error // requires user32.lib;Kernel32.lib
 //#define tiny_memset
 //#define tiny_memcpy
 #define tiny_malloc
@@ -36,6 +39,10 @@ void trace(const char* format, ...);
 #else
 #define trace(...) { printf("[window_command_hook:%d] ", __LINE__); printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
 #endif
+#endif
+
+#ifdef _show_error
+void show_error(const char* format, ...);
 #endif
 
 #pragma region typed memory helpers

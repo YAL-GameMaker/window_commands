@@ -4,6 +4,10 @@
 
 */extensions/*/*.cpp
 */extensions/*/*.dll
+window_command_hook_gmk/*.cpp
+window_command_hook_gmk/*.dll
+window_command_hook_gmk/*.html
+window_command_hook_gmk/*.zip
 */datafiles/window_command_hook.html
 
 */Debug/

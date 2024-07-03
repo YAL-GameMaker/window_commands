@@ -1,0 +1,6 @@
+window_command_close=$F060
+window_command_maximize=$F030
+window_command_minimize=$F020
+window_command_restore=$F120
+window_command_resize=$F000
+window_command_move=$F010

@@ -9,12 +9,17 @@ echo Running post-build for %config%
 
 set extName=window_command_hook
 set dllName=window_command_hook
+
+set gmlDir8=%solutionDir%%extName%_gmk
 set gmlDir14=%solutionDir%window_command_hook.gmx
 set gmlDir22=%solutionDir%window_command_hook_yy
 set gmlDir23=%solutionDir%window_command_hook_23
+
+set ext8=%gmlDir8%
 set ext14=%gmlDir14%\extensions\%extName%
 set ext22=%gmlDir22%\extensions\%extName%
 set ext23=%gmlDir23%\extensions\%extName%
+
 set dllRel=%dllName%.dll
 set cppRel=%dllName%.cpp
 set cppPath=%ext23%\%cppRel%
@@ -23,6 +28,7 @@ set docName=%extName%.html
 set docPath=%solutionDir%export\%docName%
 
 echo Copying documentation...
+copy /Y %docPath% %ext8%\%docName%
 copy /Y %docPath% %gmlDir23%\datafiles\%docName%
 copy /Y %docPath% %gmlDir22%\datafiles\%docName%
 copy /Y %docPath% %gmlDir14%\datafiles\%docName%
@@ -48,6 +54,16 @@ if %ERRORLEVEL% EQU 0 (
 	--copy "%cppPath%" "%cppRel%" ^
 	--copy "%gmlPath%" "*.gml"
 
+	gmxgen "%ext8%\%extName%.gmxgen81" ^
+	--copy "%dllPath%" "%dllRel%:%arch%" ^
+	--copy "%cppPath%" "%cppRel%" ^
+	--copy "%ext23%\%extName%.gml" "%extName%_core.gml" ^
+	--gmk-loader %extName%_init_dll ^
+	--disable-incompatible
+
+	del /Q %ext8%\%extName%_autogen.gml
+	del /Q %ext8%\%extName%_core.gml
+
 ) else (
 
 	echo Copying DLLs...
@@ -57,6 +73,7 @@ if %ERRORLEVEL% EQU 0 (
 		copy /Y "%dllPath%" "%ext22%\%dllRel%"
 		copy /Y "%dllPath%" "%ext23%\%dllRel%"
 		copy /Y "%dllPath%" "%ext14%\%dllRel%"
+		copy /Y "%dllPath%" "%ext8%\%dllRel%"
 	)
 	
 	echo Copying GML files...

@@ -8,11 +8,13 @@ set config=%~5
 echo Running pre-build for %config%
 
 where /q GmlCppExtFuncs
+set name=window_command_hook
 if %ERRORLEVEL% EQU 0 (
 	echo Running GmlCppExtFuncs...
 	GmlCppExtFuncs ^
 	--prefix window_command_hook^
 	--cpp "%projectDir%autogen.cpp"^
 	--gml "%solutionDir%window_command_hook_23/extensions/window_command_hook/autogen.gml"^
+	--gmk "%solutionDir%%name%_gmk/%name%_autogen.gml"^
 	%projectDir%window_command_hook.cpp
 )
